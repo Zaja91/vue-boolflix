@@ -22,8 +22,8 @@
     <div id="root">
       <header>
         <div class="nav-container container">
-          <input type="text" v-model="searchInput" />
-          <button @click="searchMovies">Search</button>
+          <input type="text" v-model="searchInput" @keypress.enter="searchMovies"/>
+          <button type="submit" @click="searchMovies" >Search</button>
         </div>
       </header>
       <div class="movies-container container">
