@@ -53,4 +53,9 @@ header button {
     background: rgb(46, 58, 70);
     text-align: center;
     color: #fff;
+    cursor: pointer;
+}
+
+.movie img {
+    height: 300px;
 }
