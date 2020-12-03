@@ -21,14 +21,14 @@ const vm = new Vue({
       return Math.ceil(value / 2);
     },
     searchMovies: function () {
-      if (this.searchInput !== "") {
+      if (this.searchInput.trim()) {
         axios.get(this.moviesApiUrl, this.query()).then((r) => {
           this.movies = r.data.results;
         });
       }
     },
     searchTvShows: function () {
-      if (this.searchInput !== "") {
+      if (this.searchInput.trim()) {
         axios.get(this.tvShowsApiUrl, this.query()).then((r) => {
           this.tvShows = r.data.results;
           this.searchInput = "";
