@@ -44,7 +44,7 @@
       <div class="card-container container">
         <div class="movie card" v-for="movie in movies">
           <img
-            :src="'https://image.tmdb.org/t/p/w500/' + (movie.poster_path || movie.backdrop_path)"
+            :src="'https://image.tmdb.org/t/p/w342/' + (movie.poster_path || movie.backdrop_path)"
             alt="poster"
           />
           <!-- Info Movie on Hover -->
@@ -73,7 +73,7 @@
       <div class="card-container container">
         <div class="show card" v-for="show in tvShows">
           <img
-            :src="'https://image.tmdb.org/t/p/w500/' + (show.poster_path || show.backdrop_path)"
+            :src="'https://image.tmdb.org/t/p/w342/' + (show.poster_path || show.backdrop_path)"
             alt="poster"
           />
           <!-- Info Tv show on hover -->
@@ -93,7 +93,7 @@
                 v-for="star in (5 - transformVote(show.vote_average))"
               ></i>
             </span>
-            <span>{{ show.overview }}</span>
+            <span class="overview">{{ show.overview }}</span>
           </div>
         </div>
       </div>

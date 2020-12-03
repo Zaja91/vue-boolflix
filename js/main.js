@@ -9,7 +9,7 @@ const vm = new Vue({
     tvShows: [],
   },
   methods: {
-    buildQuery: function () {
+    query: function () {
       return {
         params: {
           api_key: this.apiKey,
@@ -21,12 +21,12 @@ const vm = new Vue({
       return Math.ceil(value / 2);
     },
     searchMovies: function () {
-      axios.get(this.moviesApiUrl, this.buildQuery()).then((r) => {
+      axios.get(this.moviesApiUrl, this.query()).then((r) => {
         this.movies = r.data.results;
       });
     },
     searchTvShows: function () {
-      axios.get(this.tvShowsApiUrl, this.buildQuery()).then((r) => {
+      axios.get(this.tvShowsApiUrl, this.query()).then((r) => {
         this.tvShows = r.data.results;
         this.searchInput = "";
       });
