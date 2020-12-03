@@ -6,7 +6,12 @@
     <title>BoolFlix</title>
 
     <!-- Font Awesome 5.15.1 (CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
 
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
@@ -28,29 +33,56 @@
           <input
             type="text"
             v-model="searchInput"
-            @keypress.enter="searchMovies"
+            @keypress.enter="searchMovies(); searchTvShows();"
           />
-          <button type="submit" @click="searchMovies">Search</button>
+          <button type="submit" @click="searchMovies(); searchTvShows();">Search</button>
         </div>
       </header>
+      <h1>Film</h1>
       <div class="movies-container container">
         <div class="movie" v-for="movie in movies">
           <img
-            :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+            :src="'https://image.tmdb.org/t/p/w500/' + (movie.poster_path || movie.backdrop_path)"
             alt="poster"
           />
+          <!-- Info Movie on Hover -->
           <div class="back-card">
             <span>Titolo: {{movie.title}}</span>
             <span>Titolo Originale: {{movie.original_title}}</span>
             <span>Lingua: {{movie.original_language}}</span>
-            <span>Voto: <i 
-              class="fas fa-star"
-              v-for="star in transformVote(movie.vote_average)"
+            <span
+              >Voto:
+              <!-- Stars based on Vote -->
+              <i
+                class="fas fa-star golden"
+                v-for="star in transformVote(movie.vote_average)"
               ></i>
-              <i 
-              class="far fa-star"
-              v-for="star in (5 - transformVote(movie.vote_average))"
+              <!-- Empty Stars based on difference with Vote -->
+              <i
+                class="far fa-star"
+                v-for="star in (5 - transformVote(movie.vote_average))"
               ></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <h1>Serie Tv</h1>
+      <div class="tv-shows-container container">
+        <div class="show" v-for="show in tvShows">
+          <img
+            :src="'https://image.tmdb.org/t/p/w500/' + (show.poster_path || show.backdrop_path)"
+            alt="poster"
+          />
+          <!-- Info Tv show on hover -->
+          <div class="back-card">
+            <span>Titolo: {{ show.name }}</span>
+            <span>Titolo Originale: {{ show.original_name }}</span>
+            <span>Lingua: {{ show.original_language }}</span>
+            <span
+              >Voto:
+              <i class="fas fa-star golden" v-for="star in transformVote(show.vote_average)"></i>
+              <!-- Empty Stars based on difference with Vote -->
+              <i class="far fa-star" v-for="star in (5 - transformVote(show.vote_average))"></i>
             </span>
           </div>
         </div>

@@ -8,6 +8,11 @@ body {
   min-height: 100vh;
 }
 
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
 .container {
   width: 1070px;
   height: 100%;
@@ -77,4 +82,45 @@ header button {
 .movie:hover .back-card {
   opacity: .8;
   background-color: black;
+  transition: 0.2s ease-in;
+}
+
+.golden {
+  color: gold;
+}
+
+.tv-shows-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 100px 0;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  align-self: flex-start;
+  justify-content: flex-end;
+  margin: 10px 20px;
+  height: 400px;
+  background: rgb(46, 58, 70);
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  position: relative
+}
+
+.show img {
+  height: 100%;
+  width: 100%;
+}
+
+
+.show:hover .back-card {
+  opacity: .8;
+  background-color: black;
+  transition: 0.2s ease-in;
 }
