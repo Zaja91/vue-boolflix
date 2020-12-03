@@ -21,15 +21,19 @@ const vm = new Vue({
       return Math.ceil(value / 2);
     },
     searchMovies: function () {
-      axios.get(this.moviesApiUrl, this.query()).then((r) => {
-        this.movies = r.data.results;
-      });
+      if (this.searchInput !== "") {
+        axios.get(this.moviesApiUrl, this.query()).then((r) => {
+          this.movies = r.data.results;
+        });
+      }
     },
     searchTvShows: function () {
-      axios.get(this.tvShowsApiUrl, this.query()).then((r) => {
-        this.tvShows = r.data.results;
-        this.searchInput = "";
-      });
+      if (this.searchInput !== "") {
+        axios.get(this.tvShowsApiUrl, this.query()).then((r) => {
+          this.tvShows = r.data.results;
+          this.searchInput = "";
+        });
+      }
     },
   },
 });

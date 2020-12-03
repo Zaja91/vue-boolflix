@@ -6,15 +6,17 @@
 
 body {
   min-height: 100vh;
+  background-color: #434343;
 }
 
 h1 {
   text-align: center;
   margin-top: 50px;
+  color: white;
 }
 
 .container {
-  width: 1270px;
+  width: 1070px;
   height: 100%;
   margin: 0 auto;
 }
