@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>BoolFlix</title>
+
+    <!-- Font Awesome 5.15.1 (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
@@ -22,8 +25,12 @@
     <div id="root">
       <header>
         <div class="nav-container container">
-          <input type="text" v-model="searchInput" @keypress.enter="searchMovies"/>
-          <button type="submit" @click="searchMovies" >Search</button>
+          <input
+            type="text"
+            v-model="searchInput"
+            @keypress.enter="searchMovies"
+          />
+          <button type="submit" @click="searchMovies">Search</button>
         </div>
       </header>
       <div class="movies-container container">
@@ -32,10 +39,20 @@
             :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
             alt="poster"
           />
-          <span>Titolo: {{movie.title}}</span>
-          <span>Titolo Originale: {{movie.original_title}}</span>
-          <span>Lingua: {{movie.original_language}}</span>
-          <span>Voto Medio: {{movie.vote_average}}</span>
+          <div class="back-card">
+            <span>Titolo: {{movie.title}}</span>
+            <span>Titolo Originale: {{movie.original_title}}</span>
+            <span>Lingua: {{movie.original_language}}</span>
+            <span>Voto: <i 
+              class="fas fa-star"
+              v-for="star in transformVote(movie.vote_average)"
+              ></i>
+              <i 
+              class="far fa-star"
+              v-for="star in (5 - transformVote(movie.vote_average))"
+              ></i>
+            </span>
+          </div>
         </div>
       </div>
     </div>
