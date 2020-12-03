@@ -14,7 +14,7 @@ h1 {
 }
 
 .container {
-  width: 1070px;
+  width: 1270px;
   height: 100%;
   margin: 0 auto;
 }
@@ -38,7 +38,7 @@ header button {
   height: 30px;
 }
 
-.movies-container {
+.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -47,23 +47,23 @@ header button {
   padding: 100px 0;
 }
 
-.movie {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 300px;
-    align-self: flex-start;
-    justify-content: flex-end;
-    margin: 10px 20px;
-    height: 400px;
-    background: rgb(46, 58, 70);
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-    position: relative;
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  align-self: flex-start;
+  justify-content: flex-end;
+  margin: 10px 20px;
+  height: 400px;
+  background: rgb(46, 58, 70);
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  position: relative
 }
-
-.movie img {
-    height: 100%;
+.card img {
+  height: 100%;
+  width: 100%;
 }
 
 .back-card {
@@ -79,7 +79,7 @@ header button {
   height: 100%;
 }
 
-.movie:hover .back-card {
+.card:hover .back-card {
   opacity: .8;
   background-color: black;
   transition: 0.2s ease-in;
@@ -89,38 +89,4 @@ header button {
   color: gold;
 }
 
-.tv-shows-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 100px 0;
-}
 
-.show {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 300px;
-  align-self: flex-start;
-  justify-content: flex-end;
-  margin: 10px 20px;
-  height: 400px;
-  background: rgb(46, 58, 70);
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-  position: relative
-}
-
-.show img {
-  height: 100%;
-  width: 100%;
-}
-
-
-.show:hover .back-card {
-  opacity: .8;
-  background-color: black;
-  transition: 0.2s ease-in;
-}

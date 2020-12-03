@@ -28,6 +28,7 @@ const vm = new Vue({
     searchTvShows: function () {
       axios.get(this.tvShowsApiUrl, this.buildQuery()).then((r) => {
         this.tvShows = r.data.results;
+        this.searchInput = "";
       });
     },
   },
