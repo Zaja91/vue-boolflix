@@ -23,13 +23,21 @@ h1 {
 
 .nav-container {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: space-between;
+}
+
+.flex-end {
+  align-content: flex-end;
+}
+
+.nav-container .flex-start img {
+  height: 70px;
 }
 
 header {
   height: 70px;
-  background-color: black;
+  background-color: #001534;
 }
 
 header input {

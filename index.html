@@ -30,17 +30,22 @@
     <div id="root">
       <header>
         <div class="nav-container container">
-          <input
-            type="text"
-            v-model="searchInput"
-            @keypress.enter="searchMovies(); searchTvShows();"
-          />
-          <button type="submit" @click="searchMovies(); searchTvShows();">
-            Search
-          </button>
+          <div class="flex-start">
+            <img src="img/photo_2020-12-04_14-17-25.jpg" alt="logo"> 
+          </div>
+          <div class="flex-end">
+            <input
+              type="text"
+              v-model="searchInput"
+              @keypress.enter="searchMovies(); searchTvShows();"
+            />
+            <button type="submit" @click="searchMovies(); searchTvShows();">
+              Search
+            </button>
+          </div>
         </div>
       </header>
-      <h1>Film</h1>
+      <h1 v-if="movies.length > 0">Film</h1>
       <div class="card-container container">
         <div class="movie card" v-for="movie in movies">
           <img
@@ -51,7 +56,7 @@
           <div class="back-card">
             <span>Titolo: {{movie.title}}</span>
             <span>Titolo Originale: {{movie.original_title}}</span>
-            <span>Lingua: {{movie.original_language}}</span>
+            <span>Lingua: {{ movie.original_language }}</span>
             <span
               >Voto:
               <!-- Stars based on Vote -->
@@ -69,7 +74,7 @@
           </div>
         </div>
       </div>
-      <h1>Serie Tv</h1>
+      <h1 v-if="tvShows.length > 0">Serie Tv</h1>
       <div class="card-container container">
         <div class="show card" v-for="show in tvShows">
           <img
